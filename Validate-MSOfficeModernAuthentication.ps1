@@ -7,7 +7,7 @@ Enables Modern Authentication Registry Keys as desribed in https://docs.microsof
 
 Compatible with Office 2013 and 2016
 
-Version 1.0.2
+Version 1.0.5
 #>
 
 Clear-Host
