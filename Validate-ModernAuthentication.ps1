@@ -7,7 +7,7 @@ Enables Modern Authentication Registry Keys as desribed in https://docs.microsof
 
 Compatible with Office 2013 and 2016
 
-Version 1.0.1
+Version 1.0.2
 #>
 
 Clear-Host
@@ -37,10 +37,10 @@ if (($OfficeConfig.Version -eq 1) -and ($OfficeConfig.EnableADAL -eq 1)) {
 } else {
     Write-Host "Microsoft Office is not configured for Modern Authentication" -ForegroundColor Red
     Write-Host "Enabling Modern Authentication"
-    if (($OfficeConfig.Version -ne 1) -and ($OfficeConfig.Version -ne 0)) {
+    if (($OfficeConfig.Version -ne 1) -or ($OfficeConfig.Version -ne 0)) {
         New-ItemProperty -Path $OfficeIdentityKeyPath -Name Version -Value 1 -PropertyType DWORD -Force | Out-Null
     }
-    if (($OfficeConfig.EnableADAL -ne 1) -and ($OfficeConfig.EnableADAL -ne 0)) {
+    if (($OfficeConfig.EnableADAL -ne 1) -or ($OfficeConfig.EnableADAL -ne 0)) {
         New-ItemProperty -Path $OfficeIdentityKeyPath -Name EnableADAL -Value 1 -PropertyType DWORD -Force | Out-Null
     }
     
