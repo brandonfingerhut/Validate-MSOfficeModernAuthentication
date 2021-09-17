@@ -7,16 +7,16 @@ Enables Modern Authentication Registry Keys as desribed in https://docs.microsof
 
 Compatible with Office 2013 and 2016
 
-Version 1.2.0
+Version 1.2.1
 #>
 
 [CmdletBinding()]
 param(
     [Parameter(Mandatory=$false)]
-    [switch] $Silent
+    [switch] $Noninteractive
 )
 
-$ScriptVersion = '1.2.0'
+$ScriptVersion = '1.2.1'
 $OfficeVersions = @()
 
 Clear-Host
@@ -94,6 +94,6 @@ foreach ($OfficeVersion in $OfficeVersions)
     }
 }
 
-if (-not ($Silent)) {
+if (-not ($Noninteractive)) {
     pause
 }
